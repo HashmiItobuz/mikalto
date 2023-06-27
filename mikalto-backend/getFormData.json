@@ -26,5 +26,12 @@
         "checkOutDate": "2023-07-02",
         "noOfAdults": "1",
         "noOfchildren": "5"
+    },
+    {
+        "id": "1687828827020",
+        "checkInDate": "2023-07-07",
+        "checkOutDate": "2023-07-05",
+        "noOfAdults": "4",
+        "noOfchildren": "2"
     }
 ]

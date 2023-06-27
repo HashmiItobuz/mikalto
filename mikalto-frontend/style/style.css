@@ -21,7 +21,7 @@ body {
 
 .dropdown:focus {
     outline: none;
-    width:1rem;
+    width: 1rem;
 }
 
 /* Hero Section */
@@ -215,7 +215,9 @@ hr {
 
 /* Common Section */
 
-h1,h2,.nav-title {
+h1,
+h2,
+.nav-title {
     font-family: 'Playfair', serif;
 }
 

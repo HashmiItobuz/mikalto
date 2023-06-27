@@ -14,10 +14,10 @@ export const getFormDetails = (request) => {
                 modifyFile(parseData, "getFormData.json");
             }
         });
-    }catch(error) {
+    } catch (error) {
         console.log(error);
     }
-    
+
     async function modifyFile(totalFormData, fileName) {
         let readFileData = await fs.readFileSync(fileName, "utf-8");
         readFileData = JSON.parse(readFileData);

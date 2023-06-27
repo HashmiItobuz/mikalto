@@ -11,26 +11,26 @@ export const handleRoutes = (request) => {
         } else if (request.url === '/pageBanner') {
             return JSON.stringify({
                 data: data.heroSection,
-                message:"Hero Section Data",
-                success:true
+                message: "Hero Section Data",
+                success: true
             })
         } else if (request.url === '/welcome') {
             return JSON.stringify({
                 data: data.welcomeSection,
-                message:"Welcome Section Data",
-                success:true
+                message: "Welcome Section Data",
+                success: true
             });
         } else if (request.url === '/showRooms') {
             return JSON.stringify({
                 data: data.roomSection,
                 message: "Showrooms Section Data",
-                success:true
+                success: true
             });
         } else if (request.url === '/activities') {
             return JSON.stringify({
                 data: data.activiteSection,
-                message:"Activities Section Data",
-                success:true
+                message: "Activities Section Data",
+                success: true
             });
         } else if (request.url === "/experience") {
             return JSON.stringify({
@@ -53,8 +53,8 @@ export const handleRoutes = (request) => {
         } else if (request.url === "/wellness") {
             return JSON.stringify({
                 data: data.wellnessSection,
-                message:"Wellness Section Data",
-                success:true
+                message: "Wellness Section Data",
+                success: true
             });
         } else if (request.url === "/formData") {
             getFormDetails(request);
