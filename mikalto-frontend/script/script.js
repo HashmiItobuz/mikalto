@@ -1,10 +1,13 @@
-const bgImg = document.querySelector(".hero-section");
-const heroForm = document.querySelector(".hero-form");
+const heroSectionForm = document.querySelector(".hero-form");
+const roomImageSlider = document.getElementsByClassName("slider-box");
+const sliderRightButton = document.querySelectorAll(".slider-right-button");
+const sliderLeftButton = document.querySelectorAll(".slider-left-button");
+
 
 async function getHeroData() {
     try {
         const response = await fetch(`http://localhost:5600/pageBanner`).then((response) => response.json());
-        bgImg.style.background = `url(${response.data.heroLeftSection.heroBackground})`;
+        document.querySelector(".hero-section").style.background = `url(${response.data.heroLeftSection.heroBackground})`;
     } catch (error) {
         console.log(error);
     }
@@ -147,10 +150,7 @@ let flag = 0;
 
 displayData(flag);
 
-const rightBtn = document.querySelectorAll(".right");
-const leftBtn = document.querySelectorAll(".left");
-
-rightBtn.forEach(element => {
+sliderRightButton.forEach(element => {
     element.addEventListener("click", () => {
         let n1 = 1;
         flag = flag + n1;
@@ -158,7 +158,7 @@ rightBtn.forEach(element => {
     });
 });
 
-leftBtn.forEach(element => {
+sliderLeftButton.forEach(element => {
     element.addEventListener("click", () => {
         let n1 = 1;
         flag = flag - n1;
@@ -167,27 +167,26 @@ leftBtn.forEach(element => {
 });
 
 function displayData(num) {
-    let slider = document.getElementsByClassName("slider");
 
-    for (let item of slider) {
+    for (let item of roomImageSlider) {
         item.style.display = "none";
     }
-
-    if (num >= slider.length) {
+    
+    if (num >= roomImageSlider.length) {
         flag = 0;
         num = 0;
     } else if (num < 0) {
-        flag = slider.length - 1;
-        num = slider.length - 1;
+        flag = roomImageSlider.length - 1;
+        num = roomImageSlider.length - 1;
     }
-    slider[num].style.display = "block";
+    roomImageSlider[num].style.display = "block";
 }
 
 /* Form Data send to server */
 
-heroForm.addEventListener('submit', (e) => {
+heroSectionForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const formData = new FormData(heroForm);
+    const formData = new FormData(heroSectionForm);
     const data = Object.fromEntries(formData);
     fetch(`http://localhost:5600/formData`, {
         method: 'POST',
@@ -199,23 +198,24 @@ heroForm.addEventListener('submit', (e) => {
     }).then((response) => {
         console.log("Request complete! response:", response);
     }).then((response) => {
-        heroForm.arrive.value = "";
+        heroSectionForm.arrive.value = "";
     });
 });
 
 /* Date disable */
 
 let date = new Date();
-let tdate = date.getDate();
+let todaydate = date.getDate();
 let month = date.getMonth() + 1;
-if (tdate < 10) {
-    tdate = '0' + tdate;
+
+if (todaydate < 10) {
+    todaydate = '0' + tdate;
 } else if (month < 10) {
     month = '0' + month;
 }
 let year = date.getUTCFullYear();
-let minDate = year + '-' + month + '-' + tdate;
-document.getElementById('arrive').setAttribute('min', minDate);
-let ydate = tdate + 1;
-let maxDate = year + '-' + month + '-' + ydate;
-document.getElementById('depart').setAttribute('min', maxDate);
+let arriveMinDate = year + '-' + month + '-' + todaydate;
+document.getElementById('arrive').setAttribute('min', arriveMinDate);
+let tomorrowDate = todaydate + 1;
+let departMinDate = year + '-' + month + '-' + tomorrowDate;
+document.getElementById('depart').setAttribute('min', departMinDate);

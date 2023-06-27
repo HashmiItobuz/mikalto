@@ -1,7 +1,8 @@
 import fs from 'fs';
-const data = JSON.parse(fs.readFileSync("./dataBase/apiData.json"));
 import { getFormDetails } from '../modules/getFormDetails.js';
 import { response } from './responseHandling.js';
+
+const data = JSON.parse(fs.readFileSync("./dataBase/apiData.json"));
 
 export const handleRoutes = (request) => {
     try {

@@ -11,7 +11,7 @@ export const getFormDetails = (request) => {
         request.on('end', () => {
             const parseData = parse(chunks);
             if (Object.keys(parseData).length !== 0) {
-                modifyFile(parseData, "getFormData.json");
+                modifyFile(parseData, "./dataBase/getFormData.json");
             }
         });
     } catch (error) {
