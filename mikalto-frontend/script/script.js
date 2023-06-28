@@ -6,7 +6,7 @@ const sliderLeftButton = document.querySelectorAll(".slider-left-button");
 
 async function getHeroData() {
     try {
-        const response = await fetch(`http://localhost:5600/pageBanner`).then((response) => response.json());
+        const response = await fetch(`http://localhost:6600/pageBanner`).then((response) => response.json());
         document.querySelector(".hero-section").style.background = `url(${response.data.heroLeftSection.heroBackground})`;
     } catch (error) {
         console.log(error);
@@ -16,7 +16,7 @@ getHeroData();
 
 async function getHomeStayData() {
     try {
-        const response = await fetch(`http://localhost:5600/welcome`).then((response) => response.json());
+        const response = await fetch(`http://localhost:6600/welcome`).then((response) => response.json());
         let i = 0;
         document.querySelectorAll(".welcome-right-images").forEach((element) => {
             element.src = response.data.welcomeRightSection.urls[i];
@@ -30,7 +30,7 @@ getHomeStayData();
 
 async function getShowRoomData() {
     try {
-        const response = await fetch(`http://localhost:5600/showRooms`).then((response) => response.json());
+        const response = await fetch(`http://localhost:6600/showRooms`).then((response) => response.json());
         let i = 0;
         document.querySelectorAll(".room-images").forEach((element) => {
             element.src = response.data.roomRightSection.urls[i];
@@ -62,7 +62,7 @@ getShowRoomData();
 
 async function getActivitiesData() {
     try {
-        const response = await fetch(`http://localhost:5600/activities`).then((response) => response.json());
+        const response = await fetch(`http://localhost:6600/activities`).then((response) => response.json());
         let i = 0;
         document.querySelectorAll(".activite-img").forEach((element) => {
             element.src = response.data[i];
@@ -77,7 +77,7 @@ getActivitiesData();
 
 async function getExperienceData() {
     try {
-        const response = await fetch(`http://localhost:5600/experience`).then((response) => response.json());
+        const response = await fetch(`http://localhost:6600/experience`).then((response) => response.json());
         document.querySelectorAll(".experience-img-1").forEach((element) => {
             element.src = response.data.experienceCards.image1;
         });
@@ -98,7 +98,7 @@ getExperienceData();
 
 async function getHelloData() {
     try {
-        const response = await fetch(`http://localhost:5600/hello`).then((response) => response.json());
+        const response = await fetch(`http://localhost:6600/hello`).then((response) => response.json());
         document.querySelector(".hello-section").style.background = `url(${response.data.BackgroundImage})`;
     } catch (error) {
         console.log(error);
@@ -108,7 +108,7 @@ getHelloData();
 
 async function getReviewData() {
     try {
-        const response = await fetch('http://localhost:5600/review').then((response) => response.json());
+        const response = await fetch('http://localhost:6600/review').then((response) => response.json());
         document.querySelector(".first-user-image").src = response.data.reviewCardDetails.firstCard.profileImage;
         document.querySelector(".first-user-name").innerHTML = response.data.reviewCardDetails.firstCard.userName;
         document.querySelector(".first-card-date").innerHTML = response.data.reviewCardDetails.firstCard.date;
@@ -134,7 +134,7 @@ getReviewData();
 
 async function getWellnessData() {
     try {
-        const response = await fetch(`http://localhost:5600/wellness`).then((response) => response.json());
+        const response = await fetch(`http://localhost:6600/wellness`).then((response) => response.json());
         document.querySelector(".wellness-first-img").src = response.data.wellnessRightSection.image1;
         document.querySelector(".wellness-second-img").src = response.data.wellnessRightSection.image2;
         document.querySelector(".wellness-third-img").src = response.data.wellnessRightSection.image3;
@@ -188,7 +188,7 @@ heroSectionForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(heroSectionForm);
     const data = Object.fromEntries(formData);
-    fetch(`http://localhost:5600/formData`, {
+    fetch(`http://localhost:6600/formData`, {
         method: 'POST',
         header: {
             'Content-Type': 'application/json; charset=UTF-8',
@@ -205,17 +205,17 @@ heroSectionForm.addEventListener('submit', (e) => {
 /* Date disable */
 
 let date = new Date();
-let todaydate = date.getDate();
+let todayDate = date.getDate();
 let month = date.getMonth() + 1;
 
-if (todaydate < 10) {
-    todaydate = '0' + tdate;
+if (todayDate < 10) {
+    todayDate = '0' + todayDate;
 } else if (month < 10) {
     month = '0' + month;
 }
 let year = date.getUTCFullYear();
-let arriveMinDate = year + '-' + month + '-' + todaydate;
+let arriveMinDate = year + '-' + month + '-' + todayDate;
 document.getElementById('arrive').setAttribute('min', arriveMinDate);
-let tomorrowDate = todaydate + 1;
+let tomorrowDate = todayDate + 1;
 let departMinDate = year + '-' + month + '-' + tomorrowDate;
 document.getElementById('depart').setAttribute('min', departMinDate);

@@ -44,7 +44,8 @@ body {
 
 /* welcome section */
 
-.welcome-left-side, .welcome-left-sign{
+.welcome-left-side,
+.welcome-left-sign {
     width: 100%;
 }
 
@@ -65,7 +66,8 @@ body {
 
 /* Rooms section */
 
-.room-container,.room-detail{
+.room-container,
+.room-detail {
     width: 100%;
 }
 
@@ -102,7 +104,7 @@ body {
     right: 2%;
 }
 
-.slider-left-button{
+.slider-left-button {
     left: 2%;
 }
 
@@ -168,7 +170,8 @@ body {
 
 /* Map section */
 
-.map, .map-right {
+.map,
+.map-right {
     width: 100%;
 }
 
@@ -200,7 +203,9 @@ hr {
 
 /* Common Section */
 
-h1,h2,.nav-title {
+h1,
+h2,
+.nav-title {
     font-family: 'Playfair', serif;
 }
 
@@ -278,13 +283,13 @@ h1,h2,.nav-title {
     }
 
     .activies-content {
-        width: 50vw;
+        width: 50%;
         height: 65vh;
 
     }
 
     .activite-img {
-        width: 50vw;
+        width: 50%;
         height: 65vh;
     }
 
@@ -521,7 +526,7 @@ h1,h2,.nav-title {
     }
 
     .map {
-        width: 100%;
+        width: 90%;
     }
 
     .wellness-left {
