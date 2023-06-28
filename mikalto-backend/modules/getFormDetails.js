@@ -9,7 +9,7 @@ export const getFormDetails = (request) => {
         });
 
         request.on('end', () => {
-            let parseData = parse(chunks);
+            const parseData = parse(chunks);
             if (Object.keys(parseData).length !== 0) {
                 modifyFile(parseData, "getFormData.json");
             }
@@ -17,7 +17,6 @@ export const getFormDetails = (request) => {
     } catch (error) {
         console.log(error);
     }
-
     async function modifyFile(totalFormData, fileName) {
         let readFileData = await fs.readFileSync(fileName, "utf-8");
         readFileData = JSON.parse(readFileData);
